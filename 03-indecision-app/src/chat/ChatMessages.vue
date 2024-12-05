@@ -6,11 +6,9 @@
   </div>
 </template>
 
-
-
 <script setup lang="ts">
-import { ref, watch } from 'vue';
-import type { ChatMessage } from '@/interfaces/chat-message.interface';
+import { ref, watch } from 'vue'
+import type { ChatMessage } from '@/interfaces/chat-message.interface'
 import ChatBubble from './ChatBubble.vue'
 
 interface Props {
@@ -19,12 +17,11 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const chatRef = ref<HTMLElement|null>(null)
+const chatRef = ref<HTMLElement | null>(null)
 
 watch(props.messages, () => {
-  chatRef.value?.scrollTo({ top: chatRef.value.scrollHeight, behavior: "smooth" });
-});
-
+  chatRef.value?.scrollTo({ top: chatRef.value.scrollHeight, behavior: 'smooth' })
+})
 </script>
 
 <style scoped>
