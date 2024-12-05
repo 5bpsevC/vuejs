@@ -1,9 +1,8 @@
 <script setup lang="ts">
-// import MyCounter from './components/MyCounter.vue';
-import MyCounterScript from './components/MyCounterScript.vue';
+import IndecisionView from './view/IndecisionView.vue';
 </script>
 
 <template>
-  <!-- <MyCounter :value="0"/> -->
-   <MyCounterScript/>
+  
+  <IndecisionView />
 </template>
