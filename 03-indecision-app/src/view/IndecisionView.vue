@@ -35,6 +35,7 @@ const messages = ref<ChatMessage[]>([
   },
 ])
 
+// https://vuejs.org/api/sfc-script-setup.html#defineprops-defineemits
 const onMessage = (text: string) => {
   messages.value.push({
     id: new Date().getTime(),
