@@ -1,6 +1,7 @@
 import { ref } from 'vue'
 import type { ChatMessage } from '@/interfaces/chat-message.interface'
 import type { YesNoResponse } from '@/interfaces/yes-no.response'
+import { sleep } from '@/helpers/sleep'
 
 export const useChat = () => {
   const messages = ref<ChatMessage[]>([])
@@ -24,6 +25,7 @@ export const useChat = () => {
     // Evaluar si termina con un ?
     if (!text.endsWith('?')) return
 
+    await sleep(1.5)
     const { answer, image } = await getHerResponse()
 
     messages.value.push({
