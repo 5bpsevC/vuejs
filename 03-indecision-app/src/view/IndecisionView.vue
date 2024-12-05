@@ -6,10 +6,11 @@
     </div>
 
     <!-- Chat Messages -->
-    <ChatMessages :messages="messages"/>
+    <ChatMessages :messages="messages" />
 
     <!-- Message Box -->
-    <MessageBox />
+    <!-- <MessageBox @send-message="onMessage($event)" /> -->
+    <MessageBox @send-message="onMessage" />
   </div>
 </template>
 
@@ -24,13 +25,21 @@ const messages = ref<ChatMessage[]>([
     id: 1,
     message: 'Hello, Buenos Aires',
     itsMine: true,
-    image: "https://yesno.wtf/assets/yes/11-a23cbde4ae018bbda812d2d8b2b8fc6c.gif"
+    image: 'https://yesno.wtf/assets/yes/11-a23cbde4ae018bbda812d2d8b2b8fc6c.gif',
   },
   {
     id: 2,
-    message: "no",
+    message: 'no',
     itsMine: false,
-    image: "https://yesno.wtf/assets/no/23-5fe6c1ca6c78e7bf9a7cf43e406fb8db.gif"
+    image: 'https://yesno.wtf/assets/no/23-5fe6c1ca6c78e7bf9a7cf43e406fb8db.gif',
   },
 ])
+
+const onMessage = (text: string) => {
+  messages.value.push({
+    id: new Date().getTime(),
+    itsMine: true,
+    message: text,
+  })
+}
 </script>
