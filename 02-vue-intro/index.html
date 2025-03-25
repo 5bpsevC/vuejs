@@ -7,9 +7,17 @@
   </head>
   <body>
     <div id="myApp">
-      <h1>Batman Quotes</h1>
+      <h1>Batman quotes {{ totalQuotes }}</h1>
       <button @click="toggleAuthor">Ver author</button>
-      <!-- <button @click="showAuthor = !showAuthor">Ver author</button> -->
+      <!-- <button @click="addQuote">Add quote</button> -->
+
+      <input
+        type="text"
+        placeholder="Add quote"
+        @keypress.enter="addQuote"
+        v-model="newMessage"
+      />
+
       <br />
       <br />
 
