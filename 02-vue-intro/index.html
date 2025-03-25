@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello World in Vue</title>
+  </head>
+  <body>
+    <div id="myApp">
+      <h1>Batman Quotes</h1>
+      <button @click="toggleAuthor">Ver author</button>
+      <!-- <button @click="showAuthor = !showAuthor">Ver author</button> -->
+      <br />
+      <br />
+
+      <ul>
+        <li v-for="({ quote, author }, index ) in quotes">
+          <span>{{ index + 1 }} - {{ quote }}</span>
+          <blockquote v-show="showAuthor">{{ author }}</blockquote>
+        </li>
+      </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
