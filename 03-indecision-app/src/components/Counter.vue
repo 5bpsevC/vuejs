@@ -19,7 +19,7 @@ const squareCounter = computed(() => counter.value * counter.value);
 
 <template>
   <section>
-    <h3>Counter: {{ counter }}</h3>
+    <h3 class="text-blue-500">Counter: {{ counter }}</h3>
     <h3>Square: {{ squareCounter }}</h3>
 
     <div>
