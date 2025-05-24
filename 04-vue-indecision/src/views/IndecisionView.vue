@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import ChatMessages from "@/components/chat/ChatMessages.vue";
 import MessageBox from "@/components/chat/MessageBox.vue";
-import type { ChatMessage } from "@/interfaces";
 import { useChat } from "../composable/useChat";
 
 const { messages, onMessage } = useChat();
