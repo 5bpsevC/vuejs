@@ -10,6 +10,7 @@ interface Props {
 const { messages } = defineProps<Props>();
 const chatRef = ref<HTMLDivElement | null>(null);
 
+// El watch observa los cambios en la prop messages y ejecuta una función (callback) cada vez que cambia.
 watch(() => messages, () => {
   setTimeout(() => {
     chatRef.value?.scrollTo({
