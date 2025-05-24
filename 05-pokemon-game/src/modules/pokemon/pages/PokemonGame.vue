@@ -1,0 +1,25 @@
+<script setup lang="ts">
+import PokemonPicture from "../components/PokemonPicture.vue";
+</script>
+
+<template>
+  <section class="flex flex-col justify-center items-center w-screen h-screen">
+    <h1 class="text-3xl">Espere por favor</h1>
+    <h3 class="animate-pulse">Cargando Pokemons</h3>
+  </section>
+
+  <section class="flex flex-col justify-center items-center w-screen h-screen">
+    <h1 class="m-5">¿Quién es este Pokémon?</h1>
+
+    <div class="h-20">
+      <button
+        class="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-700 transition-all"
+      >
+        ¿Jugar de nuevo?
+      </button>
+    </div>
+
+    <!-- Pokemon Picture -->
+    <PokemonPicture />
+  </section>
+</template>

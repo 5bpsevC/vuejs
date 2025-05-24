@@ -1,3 +1,8 @@
+<script setup lang="ts">
+import PokemonGame from "./modules/pokemon/pages/PokemonGame.vue";
+</script>
+
 <template>
-  <h1 class="text-blue-500">Hola</h1>
+  <PokemonGame />
+
 </template>
