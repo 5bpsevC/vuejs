@@ -1,5 +1,5 @@
 export interface ChatMessage {
-  id: number;
+  id: string;
   message: string;
   itsMine: boolean;
   image?: string;
