@@ -3,21 +3,9 @@ import { ref } from "vue";
 import ChatMessages from "@/components/chat/ChatMessages.vue";
 import MessageBox from "@/components/chat/MessageBox.vue";
 import type { ChatMessage } from "@/interfaces";
+import { useChat } from "../composable/useChat";
 
-const messages = ref<ChatMessage[]>([
-  {
-    id: crypto.randomUUID(),
-    itsMine: true,
-    message: "Hello, World!",
-  },
-  {
-    id: crypto.randomUUID(),
-    itsMine: false,
-    message: "no",
-    image: "https://yesno.wtf/assets/no/24-159febcfd655625c38c147b65e5be565.gif",
-  },
-   
-]);
+const { messages, onMessage } = useChat();
 </script>
 
 <!-- Fuente: https://tailwindcomponents.com/component/chat-layout -->
@@ -31,6 +19,6 @@ const messages = ref<ChatMessage[]>([
     <ChatMessages :messages="messages" />
 
     <!-- Message Box -->
-    <MessageBox />
+    <MessageBox @send-message="onMessage" />
   </div>
 </template>
