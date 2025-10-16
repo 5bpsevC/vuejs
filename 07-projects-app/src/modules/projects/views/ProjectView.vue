@@ -24,7 +24,7 @@ const project = ref<Project | null>();
 // Referencia para almacenar el texto de una nueva tarea
 const newTask = ref('');
 
-// let project = projectStore.projectList.find((project) => project.id === props.id);
+
 // Función para agregar una nueva tarea al proyecto actual
 const addTask = () => {
   // Si no hay proyecto cargado, no hace nada
