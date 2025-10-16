@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
 import { useProjectsStore } from '@/store/projects.store';
+import { ref } from 'vue';
 import CustomModal from '@/modules/common/components/CustomModal.vue';
 import FabButton from '@/modules/common/components/FabButton.vue';
 import InputModal from '@/modules/common/components/InputModal.vue';
@@ -10,9 +10,7 @@ import ModalIcon from '@/modules/common/icons/ModalIcon.vue';
 const modalOpen = ref(false);
 const customModalOpen = ref(false);
 
-const projectStore = useProjectsStore();
-
-
+const projectsStore = useProjectsStore();
 </script>
 
 <template>
@@ -28,15 +26,21 @@ const projectStore = useProjectsStore();
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(project, index) in projectStore.projectList" :key="project.id" class="hover">
+        <tr
+          v-for="(project, index) in projectsStore.projectsWithCompletion"
+          :key="project.id"
+          class="hover"
+        >
           <th>{{ index + 1 }}</th>
-          <td>{{ project.name }}</td>
-          <td>{{ project.tasks.length }}</td>
+          <td>
+            <span @dblclick="console.log('dbclick')">{{ project.name }}</span>
+          </td>
+          <td>{{ project.taskCount }}</td>
           <td>
             <progress
               class="progress progress-primary w-56"
-              :value="project.tasks.length"
-              max="10"
+              :value="project.completion"
+              max="100"
             ></progress>
           </td>
         </tr>
@@ -47,7 +51,7 @@ const projectStore = useProjectsStore();
   <input-modal
     :open="modalOpen"
     @close="modalOpen = false"
-    @value="projectStore.addProject"
+    @value="projectsStore.addProject"
     placeholder="Ingrese el nombre del proyecto"
     title="Nuevo proyecto"
     sub-title="Dale un nombre único a tu proyecto"
